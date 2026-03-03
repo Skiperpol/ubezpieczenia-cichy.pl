@@ -40,8 +40,10 @@ function App() {
   const [selectedOffice, setSelectedOffice] = useState<'A' | 'B'>('A');
   const [callPopupOpen, setCallPopupOpen] = useState(false);
 
-  const PHONE_DISPLAY = '+48 22 123 45 67';
-  const PHONE_TEL = '+48221234567';
+  const PHONE_PRIMARY_DISPLAY = '+48 519-165-963';
+  const PHONE_PRIMARY_TEL = '+48519165963';
+  const PHONE_SECONDARY_DISPLAY = '+48 515-183-115';
+  const PHONE_SECONDARY_TEL = '+48515183115';
 
   useEffect(() => {
     if (!callPopupOpen) return;
@@ -268,17 +270,35 @@ function App() {
             </div>
             <div className="px-5 py-5">
               <p className="text-gray-600 mb-4">
-                Najszybciej pomożemy Ci telefonicznie. Zadzwoń na:
+                Najszybciej pomożemy Ci telefonicznie. Wybierz numer:
               </p>
-              <div className="rounded-lg bg-gray-50 border border-gray-200 px-4 py-3 flex items-center justify-between">
-                <div className="text-lg font-semibold text-blue-900">{PHONE_DISPLAY}</div>
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  className="inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors"
-                >
-                  <Phone className="h-4 w-4" />
-                  Zadzwoń
-                </a>
+              <div className="space-y-3">
+                <div className="rounded-lg bg-gray-50 border border-gray-200 px-4 py-3 flex items-center justify-between">
+                  <div className="text-sm">
+                    <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Główny numer</p>
+                    <p className="text-lg font-semibold text-blue-900">{PHONE_PRIMARY_DISPLAY}</p>
+                  </div>
+                  <a
+                    href={`tel:${PHONE_PRIMARY_TEL}`}
+                    className="inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors text-sm"
+                  >
+                    <Phone className="h-4 w-4" />
+                    Zadzwoń
+                  </a>
+                </div>
+                <div className="rounded-lg bg-gray-50 border border-dashed border-gray-300 px-4 py-3 flex items-center justify-between">
+                  <div className="text-sm">
+                    <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Drugi numer</p>
+                    <p className="text-base font-semibold text-blue-900">{PHONE_SECONDARY_DISPLAY}</p>
+                  </div>
+                  <a
+                    href={`tel:${PHONE_SECONDARY_TEL}`}
+                    className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-emerald-600 text-emerald-700 hover:bg-emerald-50 transition-colors text-sm"
+                  >
+                    <Phone className="h-4 w-4" />
+                    Zadzwoń
+                  </a>
+                </div>
               </div>
               <div className="mt-4 flex justify-end">
                 <button
