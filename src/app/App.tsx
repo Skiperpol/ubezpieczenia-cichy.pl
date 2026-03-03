@@ -757,6 +757,10 @@ function App() {
               <h3 className="font-semibold mb-4">Kontakt</h3>
               <div className="space-y-3 text-blue-100 text-sm">
                 <div>
+                <p className="uppercase tracking-wide text-xs text-blue-200 mb-1">Email</p>
+                <a href="mailto:kontakt@ubezpieczeniacichy.pl" className="text-blue-100 hover:text-white font-semibold">kontakt@ubezpieczenia-cichy.pl</a>
+                </div>
+                <div>
                   <p className="uppercase tracking-wide text-xs text-blue-200 mb-1">Telefon</p>
                   <p>
                     <span className="font-semibold">+48 519-165-963</span>
