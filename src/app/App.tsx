@@ -493,9 +493,9 @@ function App() {
       {/* Locations Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl text-center text-blue-900 mb-4">Nasze biura</h2>
+          <h2 className="text-4xl text-center text-blue-900 mb-4">Nasze biuro</h2>
           <p className="text-center text-gray-600 mb-12">Odwiedź nas osobiście</p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="flex flex-col items-center justify-center gap-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -508,21 +508,42 @@ function App() {
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl text-blue-900 mb-2">Biuro Warszawa Centrum</h3>
-                  <p className="text-gray-600">ul. Marszałkowska 115</p>
-                  <p className="text-gray-600">00-102 Warszawa</p>
+                  <h3 className="text-2xl text-blue-900 mb-2">Biuro Kalisz</h3>
+                  <p className="text-gray-600">ul. Parczewskiego 9</p>
+                  <p className="text-gray-600">62-800 Kalisz</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-4 mb-4">
-                <Clock className="h-5 w-5 text-gray-400 mt-1" />
-                <div>
-                  <p className="text-gray-600">Poniedziałek - Piątek: 9:00 - 18:00</p>
-                  <p className="text-gray-600">Sobota: 10:00 - 14:00</p>
-                  <p className="text-gray-600">Niedziela: Zamknięte</p>
+              <div className="flex flex-col gap-4">
+                <div className="flex items-start space-x-4">
+                  <Clock className="h-5 w-5 text-gray-400 mt-1" />
+                  <div className="space-y-1">
+                    <p className="text-gray-600 font-medium">Godziny otwarcia biura</p>
+                    <p className="text-gray-600">Poniedziałek – Piątek: <span className="font-semibold">8:00 – 16:00</span></p>
+                    <p className="text-gray-600">Sobota: <span className="font-semibold">10:00 – 13:00</span></p>
+                    <p className="text-gray-600">Niedziela: <span className="font-semibold">zamknięte</span></p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <Phone className="h-5 w-5 text-gray-400 mt-1" />
+                  <div className="space-y-1">
+                    <p className="text-gray-600 font-medium">Kontakt telefoniczny (całodobowo)</p>
+                    <p className="text-gray-600">
+                      <span className="font-semibold mr-2">Agent 1:</span>
+                      <a href="tel:+48519165963" className="text-blue-900 font-semibold hover:underline">
+                        +48 519-165-963
+                      </a>
+                    </p>
+                    <p className="text-gray-600">
+                      <span className="font-semibold mr-2">Agent 2:</span>
+                      <a href="tel:+48515183115" className="text-blue-900 font-semibold hover:underline">
+                        +48 515-183-115
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
-
+{/* 
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -548,7 +569,7 @@ function App() {
                   <p className="text-gray-600">Niedziela: Zamknięte</p>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </section>
@@ -714,11 +735,24 @@ function App() {
 
             <div>
               <h3 className="font-semibold mb-4">Kontakt</h3>
-              <ul className="space-y-2 text-blue-100">
-                <li>Tel: {PHONE_DISPLAY}</li>
-                <li>Email: kontakt@ubezpieczeniacichy.pl</li>
-                <li>Godz. pracy: PN-PT 9:00-18:00</li>
-              </ul>
+              <div className="space-y-3 text-blue-100 text-sm">
+                <div>
+                  <p className="uppercase tracking-wide text-xs text-blue-200 mb-1">Telefon</p>
+                  <p>
+                    <span className="font-semibold">+48 519-165-963</span>
+                    <span className="mx-1 text-blue-200">/</span>
+                    <span className="font-semibold">+48 515-183-115</span>
+                  </p>
+                </div>
+                <div>
+                  <p className="uppercase tracking-wide text-xs text-blue-200 mb-1">Godziny biura</p>
+                  <p>PN–PT: <span className="font-semibold">8:00–16:00</span></p>
+                  <p>SB: <span className="font-semibold">10:00–13:00</span></p>
+                </div>
+                <p className="text-blue-200 text-xs">
+                  Telefonicznie jesteśmy dostępni także poza godzinami pracy biura.
+                </p>
+              </div>
             </div>
 
             {/* <div>
