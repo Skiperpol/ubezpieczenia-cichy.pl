@@ -208,7 +208,7 @@ function App() {
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200 py-4">
             <div className="max-w-7xl mx-auto px-4 space-y-4">
-              <div>
+              {/* <div>
                 <button className="font-semibold text-blue-900 mb-2">Dla Ciebie i Rodziny</button>
                 <div className="pl-4 space-y-2">
                   <p className="text-sm text-gray-600">Majątek</p>
@@ -224,7 +224,7 @@ function App() {
                   <p className="text-sm text-gray-600">OC działalności</p>
                 </div>
               </div>
-              <a href="#contact" className="block text-gray-700">Pomoc i Kontakt</a>
+              <a href="#contact" className="block text-gray-700">Pomoc i Kontakt</a> */}
               <button
                 type="button"
                 onClick={() => {
