@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Shield, Users, Clock, Award, TrendingUp, MapPin, Star, ChevronDown, Menu, X, MessageCircle, Calendar, Facebook, Linkedin, Instagram, FileText, ChevronRight } from 'lucide-react';
 import { motion, useInView, useAnimation } from 'motion/react';
-import { useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -39,6 +38,19 @@ function App() {
   const [chatOpen, setChatOpen] = useState(false);
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [selectedOffice, setSelectedOffice] = useState<'A' | 'B'>('A');
+  const [callPopupOpen, setCallPopupOpen] = useState(false);
+
+  const PHONE_DISPLAY = '+48 22 123 45 67';
+  const PHONE_TEL = '+48221234567';
+
+  useEffect(() => {
+    if (!callPopupOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setCallPopupOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [callPopupOpen]);
 
   const testimonialSettings = {
     dots: true,
@@ -172,7 +184,11 @@ function App() {
 
             {/* CTA Button */}
             <div className="hidden lg:flex items-center">
-              <button className="flex items-center space-x-2 bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 transition-colors">
+              <button
+                type="button"
+                onClick={() => setCallPopupOpen(true)}
+                className="flex items-center space-x-2 bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 transition-colors"
+              >
                 <Phone className="h-5 w-5" />
                 <span>Zadzwoń teraz</span>
               </button>
@@ -209,7 +225,14 @@ function App() {
                 </div>
               </div>
               <a href="#contact" className="block text-gray-700">Pomoc i Kontakt</a>
-              <button className="w-full flex items-center justify-center space-x-2 bg-emerald-600 text-white px-6 py-3 rounded-lg">
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setCallPopupOpen(true);
+                }}
+                className="w-full flex items-center justify-center space-x-2 bg-emerald-600 text-white px-6 py-3 rounded-lg"
+              >
                 <Phone className="h-5 w-5" />
                 <span>Zadzwoń teraz</span>
               </button>
@@ -217,6 +240,59 @@ function App() {
           </div>
         )}
       </header>
+
+      {callPopupOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Zadzwoń teraz"
+        >
+          <button
+            type="button"
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setCallPopupOpen(false)}
+            aria-label="Zamknij"
+          />
+          <div className="relative w-full max-w-md rounded-xl bg-white shadow-2xl">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200">
+              <div className="font-semibold text-blue-900">Zadzwoń teraz</div>
+              <button
+                type="button"
+                onClick={() => setCallPopupOpen(false)}
+                className="p-2 rounded-lg hover:bg-gray-100"
+                aria-label="Zamknij"
+              >
+                <X className="h-5 w-5 text-gray-700" />
+              </button>
+            </div>
+            <div className="px-5 py-5">
+              <p className="text-gray-600 mb-4">
+                Najszybciej pomożemy Ci telefonicznie. Zadzwoń na:
+              </p>
+              <div className="rounded-lg bg-gray-50 border border-gray-200 px-4 py-3 flex items-center justify-between">
+                <div className="text-lg font-semibold text-blue-900">{PHONE_DISPLAY}</div>
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  className="inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors"
+                >
+                  <Phone className="h-4 w-4" />
+                  Zadzwoń
+                </a>
+              </div>
+              <div className="mt-4 flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => setCallPopupOpen(false)}
+                  className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50"
+                >
+                  Zamknij
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="relative h-[600px] flex items-center justify-center bg-gradient-to-r from-blue-900 to-blue-700">
@@ -605,7 +681,7 @@ function App() {
             <div>
               <div className="flex items-center mb-4">
                 <Shield className="h-8 w-8" />
-                <span className="ml-2 text-xl font-semibold">SecureLife</span>
+                <span className="ml-2 text-xl font-semibold">Ubezpieczenia Cichy</span>
               </div>
               <p className="text-blue-100">
                 Twój partner w zabezpieczeniu przyszłości
@@ -639,8 +715,8 @@ function App() {
             <div>
               <h3 className="font-semibold mb-4">Kontakt</h3>
               <ul className="space-y-2 text-blue-100">
-                <li>Tel: +48 22 123 45 67</li>
-                <li>Email: kontakt@securelife.pl</li>
+                <li>Tel: {PHONE_DISPLAY}</li>
+                <li>Email: kontakt@ubezpieczeniacichy.pl</li>
                 <li>Godz. pracy: PN-PT 9:00-18:00</li>
               </ul>
             </div>
@@ -663,7 +739,7 @@ function App() {
 
           <div className="border-t border-blue-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-blue-100 text-sm mb-4 md:mb-0">
-              © 2026 SecureLife. Wszelkie prawa zastrzeżone.
+              © 2026 Ubezpieczenia Cichy. Wszelkie prawa zastrzeżone.
             </p>
             {/* <div className="flex space-x-4">
               <a
