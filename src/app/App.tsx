@@ -40,10 +40,14 @@ function App() {
   const [selectedOffice, setSelectedOffice] = useState<'A' | 'B'>('A');
   const [callPopupOpen, setCallPopupOpen] = useState(false);
 
-  const PHONE_PRIMARY_DISPLAY = '+48 519-165-963';
-  const PHONE_PRIMARY_TEL = '+48519165963';
-  const PHONE_SECONDARY_DISPLAY = '+48 515-183-115';
-  const PHONE_SECONDARY_TEL = '+48515183115';
+  const KALISZ_PHONE_1_DISPLAY = '+48 505-007-836';
+  const KALISZ_PHONE_1_TEL = '+48505007836';
+  const KALISZ_PHONE_2_DISPLAY = '+48 515-183-115';
+  const KALISZ_PHONE_2_TEL = '+48515183115';
+  const BLASZKI_PHONE_1_DISPLAY = '+48 519-165-963';
+  const BLASZKI_PHONE_1_TEL = '+48519165963';
+  const BLASZKI_PHONE_2_DISPLAY = '+48 570-774-484';
+  const BLASZKI_PHONE_2_TEL = '+48570774484';
 
   useEffect(() => {
     if (!callPopupOpen) return;
@@ -272,14 +276,14 @@ function App() {
               <p className="text-gray-600 mb-4">
                 Najszybciej pomożemy Ci telefonicznie. Wybierz numer:
               </p>
-              <div className="space-y-3">
+                <div className="space-y-3">
                 <div className="rounded-lg bg-gray-50 border border-gray-200 px-4 py-3 flex items-center justify-between">
                   <div className="text-sm">
-                    <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Główny numer</p>
-                    <p className="text-lg font-semibold text-blue-900">{PHONE_PRIMARY_DISPLAY}</p>
+                      <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Kalisz</p>
+                      <p className="text-lg font-semibold text-blue-900">{KALISZ_PHONE_1_DISPLAY}</p>
                   </div>
                   <a
-                    href={`tel:${PHONE_PRIMARY_TEL}`}
+                      href={`tel:${KALISZ_PHONE_1_TEL}`}
                     className="inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors text-sm"
                   >
                     <Phone className="h-4 w-4" />
@@ -288,17 +292,43 @@ function App() {
                 </div>
                 <div className="rounded-lg bg-gray-50 border border-dashed border-gray-300 px-4 py-3 flex items-center justify-between">
                   <div className="text-sm">
-                    <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Drugi numer</p>
-                    <p className="text-base font-semibold text-blue-900">{PHONE_SECONDARY_DISPLAY}</p>
+                      <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Kalisz - drugi numer</p>
+                      <p className="text-base font-semibold text-blue-900">{KALISZ_PHONE_2_DISPLAY}</p>
                   </div>
                   <a
-                    href={`tel:${PHONE_SECONDARY_TEL}`}
+                      href={`tel:${KALISZ_PHONE_2_TEL}`}
                     className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-emerald-600 text-emerald-700 hover:bg-emerald-50 transition-colors text-sm"
                   >
                     <Phone className="h-4 w-4" />
                     Zadzwoń
                   </a>
                 </div>
+                  <div className="rounded-lg bg-gray-50 border border-gray-200 px-4 py-3 flex items-center justify-between">
+                    <div className="text-sm">
+                      <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Błaszki</p>
+                      <p className="text-base font-semibold text-blue-900">{BLASZKI_PHONE_1_DISPLAY}</p>
+                    </div>
+                    <a
+                      href={`tel:${BLASZKI_PHONE_1_TEL}`}
+                      className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-emerald-600 text-emerald-700 hover:bg-emerald-50 transition-colors text-sm"
+                    >
+                      <Phone className="h-4 w-4" />
+                      Zadzwoń
+                    </a>
+                  </div>
+                  <div className="rounded-lg bg-gray-50 border border-dashed border-gray-300 px-4 py-3 flex items-center justify-between">
+                    <div className="text-sm">
+                      <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">Błaszki - drugi numer</p>
+                      <p className="text-base font-semibold text-blue-900">{BLASZKI_PHONE_2_DISPLAY}</p>
+                    </div>
+                    <a
+                      href={`tel:${BLASZKI_PHONE_2_TEL}`}
+                      className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-emerald-600 text-emerald-700 hover:bg-emerald-50 transition-colors text-sm"
+                    >
+                      <Phone className="h-4 w-4" />
+                      Zadzwoń
+                    </a>
+                  </div>
               </div>
               <div className="mt-4 flex justify-end">
                 <button
@@ -543,6 +573,22 @@ function App() {
                     <p className="text-gray-600">Niedziela: <span className="font-semibold">zamknięte</span></p>
                   </div>
                 </div>
+                <div className="flex items-start space-x-4">
+                  <Phone className="h-5 w-5 text-gray-400 mt-1" />
+                  <div className="space-y-1">
+                    <p className="text-gray-600 font-medium">Telefony - Kalisz</p>
+                    <p className="text-gray-600">
+                      <a href={`tel:${KALISZ_PHONE_1_TEL}`} className="text-blue-900 font-semibold hover:underline">
+                        {KALISZ_PHONE_1_DISPLAY}
+                      </a>
+                    </p>
+                    <p className="text-gray-600">
+                      <a href={`tel:${KALISZ_PHONE_2_TEL}`} className="text-blue-900 font-semibold hover:underline">
+                        {KALISZ_PHONE_2_DISPLAY}
+                      </a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -572,34 +618,24 @@ function App() {
                   <p className="text-gray-600">Niedziela: <span className="font-semibold">zamknięte</span></p>
                 </div>
               </div>
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            viewport={{ once: true }}
-            className="mt-8 bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-100"
-          >
-            <div className="flex items-start gap-4">
-              <div className="bg-blue-900 p-3 rounded-lg">
-                <Phone className="h-6 w-6 text-white" />
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-2xl text-blue-900">Kontakt telefoniczny</h3>
-                <p className="text-gray-600">Jesteśmy dostępni całodobowo pod numerami:</p>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 gap-1">
-                  <a href="tel:+48519165963" className="text-blue-900 font-semibold hover:underline">
-                    +48 519-165-963
-                  </a>
-                  <a href="tel:+48515183115" className="text-blue-900 font-semibold hover:underline">
-                    +48 515-183-115
-                  </a>
+              <div className="flex items-start space-x-4">
+                <Phone className="h-5 w-5 text-gray-400 mt-1" />
+                <div className="space-y-1">
+                  <p className="text-gray-600 font-medium">Telefony - Błaszki</p>
+                  <p className="text-gray-600">
+                    <a href={`tel:${BLASZKI_PHONE_1_TEL}`} className="text-blue-900 font-semibold hover:underline">
+                      {BLASZKI_PHONE_1_DISPLAY}
+                    </a>
+                  </p>
+                  <p className="text-gray-600">
+                    <a href={`tel:${BLASZKI_PHONE_2_TEL}`} className="text-blue-900 font-semibold hover:underline">
+                      {BLASZKI_PHONE_2_DISPLAY}
+                    </a>
+                  </p>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -771,11 +807,8 @@ function App() {
                 </div>
                 <div>
                   <p className="uppercase tracking-wide text-xs text-blue-200 mb-1">Telefon</p>
-                  <p>
-                    <span className="font-semibold">+48 519-165-963</span>
-                    <span className="mx-1 text-blue-200">/</span>
-                    <span className="font-semibold">+48 515-183-115</span>
-                  </p>
+                  <p>Kalisz: <span className="font-semibold">{KALISZ_PHONE_1_DISPLAY}</span> / <span className="font-semibold">{KALISZ_PHONE_2_DISPLAY}</span></p>
+                  <p>Błaszki: <span className="font-semibold">{BLASZKI_PHONE_1_DISPLAY}</span> / <span className="font-semibold">{BLASZKI_PHONE_2_DISPLAY}</span></p>
                 </div>
                 <div>
                   <p className="uppercase tracking-wide text-xs text-blue-200 mb-1">Godziny biura</p>
