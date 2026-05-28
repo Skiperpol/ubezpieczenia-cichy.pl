@@ -575,7 +575,13 @@ function App() {
             </motion.div>
           </div>
 
-          <div className="mt-8 bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-100">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="mt-8 bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-100"
+          >
             <div className="flex items-start gap-4">
               <div className="bg-blue-900 p-3 rounded-lg">
                 <Phone className="h-6 w-6 text-white" />
@@ -593,7 +599,7 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
