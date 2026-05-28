@@ -515,13 +515,13 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl text-center text-blue-900 mb-4">Nasze biuro</h2>
           <p className="text-center text-gray-600 mb-12">Odwiedź nas osobiście</p>
-          <div className="flex flex-col items-center justify-center gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-lg shadow-lg"
+              className="bg-white p-8 rounded-lg shadow-lg h-full"
             >
               <div className="flex items-start space-x-4 mb-6">
                 <div className="bg-blue-900 p-3 rounded-lg">
@@ -543,53 +543,56 @@ function App() {
                     <p className="text-gray-600">Niedziela: <span className="font-semibold">zamknięte</span></p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-4">
-                  <Phone className="h-5 w-5 text-gray-400 mt-1" />
-                  <div className="space-y-1">
-                    <p className="text-gray-600 font-medium">Kontakt telefoniczny (całodobowo)</p>
-                    <p className="text-gray-600">
-                      <span className="font-semibold mr-2">Agent 1:</span>
-                      <a href="tel:+48519165963" className="text-blue-900 font-semibold hover:underline">
-                        +48 519-165-963
-                      </a>
-                    </p>
-                    <p className="text-gray-600">
-                      <span className="font-semibold mr-2">Agent 2:</span>
-                      <a href="tel:+48515183115" className="text-blue-900 font-semibold hover:underline">
-                        +48 515-183-115
-                      </a>
-                    </p>
-                  </div>
-                </div>
               </div>
             </motion.div>
-{/* 
+
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-lg shadow-lg"
+              className="bg-white p-8 rounded-lg shadow-lg h-full"
             >
               <div className="flex items-start space-x-4 mb-6">
                 <div className="bg-emerald-600 p-3 rounded-lg">
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl text-blue-900 mb-2">Biuro Kraków Stare Miasto</h3>
-                  <p className="text-gray-600">ul. Floriańska 45</p>
-                  <p className="text-gray-600">31-019 Kraków</p>
+                  <h3 className="text-2xl text-blue-900 mb-2">Biuro Błaszki</h3>
+                  <p className="text-gray-600">ul. Pułaskiego 10</p>
+                  <p className="text-gray-600">98-235 Błaszki</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4 mb-4">
                 <Clock className="h-5 w-5 text-gray-400 mt-1" />
                 <div>
-                  <p className="text-gray-600">Poniedziałek - Piątek: 9:00 - 18:00</p>
-                  <p className="text-gray-600">Sobota: 10:00 - 14:00</p>
-                  <p className="text-gray-600">Niedziela: Zamknięte</p>
+                  <p className="text-gray-600 font-medium">Godziny otwarcia biura</p>
+                  <p className="text-gray-600">Poniedziałek - Piątek: <span className="font-semibold">8:00 - 18:00</span></p>
+                  <p className="text-gray-600">Sobota: <span className="font-semibold">9:00 - 14:00</span></p>
+                  <p className="text-gray-600">Niedziela: <span className="font-semibold">zamknięte</span></p>
                 </div>
               </div>
-            </motion.div> */}
+            </motion.div>
+          </div>
+
+          <div className="mt-8 bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-100">
+            <div className="flex items-start gap-4">
+              <div className="bg-blue-900 p-3 rounded-lg">
+                <Phone className="h-6 w-6 text-white" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-2xl text-blue-900">Kontakt telefoniczny</h3>
+                <p className="text-gray-600">Jesteśmy dostępni całodobowo pod numerami:</p>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 gap-1">
+                  <a href="tel:+48519165963" className="text-blue-900 font-semibold hover:underline">
+                    +48 519-165-963
+                  </a>
+                  <a href="tel:+48515183115" className="text-blue-900 font-semibold hover:underline">
+                    +48 515-183-115
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -770,8 +773,8 @@ function App() {
                 </div>
                 <div>
                   <p className="uppercase tracking-wide text-xs text-blue-200 mb-1">Godziny biura</p>
-                  <p>PN–PT: <span className="font-semibold">8:00–16:00</span></p>
-                  <p>SB: <span className="font-semibold">10:00–13:00</span></p>
+                  <p>Kalisz: PN–PT <span className="font-semibold">8:00–16:00</span>, SB <span className="font-semibold">10:00–13:00</span></p>
+                  <p>Błaszki: PN–PT <span className="font-semibold">8:00–18:00</span>, SB <span className="font-semibold">9:00–14:00</span></p>
                 </div>
                 <p className="text-blue-200 text-xs">
                   Telefonicznie jesteśmy dostępni także poza godzinami pracy biura.
