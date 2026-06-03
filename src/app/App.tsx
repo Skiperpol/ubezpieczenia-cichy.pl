@@ -803,7 +803,7 @@ function App() {
               <div className="space-y-3 text-blue-100 text-sm">
                 <div>
                 <p className="uppercase tracking-wide text-xs text-blue-200 mb-1">Email</p>
-                <a href="mailto:kontakt@ubezpieczeniacichy.pl" className="text-blue-100 hover:text-white font-semibold">kontakt@ubezpieczenia-cichy.pl</a>
+                <a href="mailto:kontakt@ubezpieczenia-cichy.pl" className="text-blue-100 hover:text-white font-semibold">kontakt@ubezpieczenia-cichy.pl</a>
                 </div>
                 <div>
                   <p className="uppercase tracking-wide text-xs text-blue-200 mb-1">Telefon</p>
